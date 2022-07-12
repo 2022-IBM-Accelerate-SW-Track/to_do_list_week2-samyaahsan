@@ -18,9 +18,14 @@ import {Checkbox } from "@mui/material";
 const Todos = ({ todos, deleteTodo }) => {
   const todoList = todos.length ? (
     todos.map((todo) => {
+      let color = "white";
+
+      if (new Date(todo.due) <= new Date()){
+        color = "purple";
+      }
       return (
         <Grid key={todo.id}>
-          <Card style = {{marginTop:10}}>
+          <Card style = {{marginTop:10, background:color}} >
             {/* Remember, we set the local state of this todo item when the user submits the form in 
             AddTodo.js. All we need to do is return the todo list item {todo.content} */}
 

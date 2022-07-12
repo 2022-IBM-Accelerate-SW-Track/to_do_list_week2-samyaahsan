@@ -11,6 +11,16 @@ class Home extends Component {
       todos: [],
     };
   }
+
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    this.setState({
+      todos: todos,
+    });
+  };
+  
   // the addTodo function simply creates a new array that includes the user submitted todo item and then
   // updates the state with the new list.
   addTodo = (todo) => {
